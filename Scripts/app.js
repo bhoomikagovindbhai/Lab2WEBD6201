@@ -362,6 +362,45 @@ let app;
                     }
         
                 });
+                // password Events
+                $("#password").blur((e)=>
+                {
+                    if( $("#password").val().length < 6)
+                    {
+                        $("#errorMessage").show();
+                        $("#errorMessage").text("Length of Password is too Short!");
+                        $("#password").select();
+                        $("#password").css("border", "1px solid red");
+        
+                    }
+                    else
+                    {
+                        $("#errorMessage").hide();
+                        $("#password").css("border", "1px solid #ced4da");
+        
+                    }
+                });    
+
+                 // confirm password Events
+                 $("#confirmPassword").blur((e)=>
+                 {
+                     if( $("#confirmPassword").val().length < 6)
+                     {
+                         $("#errorMessage").show();
+                         $("#errorMessage").text("Length of Password is too Short!");
+                         $("#passwconfirmPasswordord").select();
+                         $("#confirmPassword").css("border", "1px solid red");
+         
+                     }
+                     else
+                     {
+                         $("#errorMessage").hide();
+                         $("#confirmPassword").css("border", "1px solid #ced4da");
+         
+                     }
+                 });    
+
+
 
 
 
@@ -376,21 +415,20 @@ let app;
             let firstName = $("#firstName").val();
             let lastName = $("#lastName").val();
             let emailAddress = $("#emailAddress").val();
-            // let contactNumber = $("#contactNumber").val();
-            // let contactMessage = $("#contactMessage").val();
+            let password = $("#password").val();
+            let confirmPassword= $("#confirmPassword").val();
 
             console.log(`First Name: ${firstName}`);
             console.log(`Last Name: ${lastName}`);
             console.log(`Email Address: ${emailAddress}`);
-            // console.log(`Contact Number: ${contactNumber}`);
-            // console.log(`Contact Message: ${contactMessage}`);
-
+            console.log(`Password: ${password}`);
+            console.log(`Password: ${confirmPassword}`);
+            
             registerObject.firstName = firstName;
             registerObject.lastName = lastName;
             registerObject.emailAddress = emailAddress;
-            // contactObject.contactNumber = contactNumber;
-            // contactObject.contactMessage = contactMessage;
-
+            registerObject.password = password;
+           registerObject.emailAddress = confirmPassword;
             console.log(registerObject);
 
             clearForm();
